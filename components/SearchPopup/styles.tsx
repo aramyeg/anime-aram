@@ -16,3 +16,22 @@ export const PopupOverlay = styled.div.attrs({
   display: flex;
   justify-content: center;
 `
+
+export const SearchItem = styled.div.attrs({
+  className: 'SearchItem',
+})`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+`
+
+export const SearchItemInfo = styled.div.attrs({
+  className: 'SearchItemInfo',
+})`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+`

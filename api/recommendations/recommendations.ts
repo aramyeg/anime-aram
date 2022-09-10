@@ -1,12 +1,13 @@
-import {UIModelRecommendations} from './recommendations.models';
-import {unpackRecommendations} from './recommendations.mapper';
+import {UIModelRecommendations} from './recommendations.model'
+import {unpackRecommendations} from './recommendations.mapper'
 
 const getRecommendations = async () : Promise<UIModelRecommendations> => {
   const url = 'https://api.jikan.moe/v4/anime/1/recommendations'
   try{
-    const response = await fetch(url.toString(), {method: 'GET'});
-    const data = await response.json();
-    return new UIModelRecommendations(unpackRecommendations(data));
+    const response = await fetch(url.toString(), {method: 'GET'})
+    const data = await response.json()
+    console.log(data)
+    return new UIModelRecommendations(unpackRecommendations(data))
   } catch (err){
     throw new Error(err)
   }
@@ -14,6 +15,6 @@ const getRecommendations = async () : Promise<UIModelRecommendations> => {
 
 const RecommendationsService = {
   getRecommendations,
-};
+}
 
-export default RecommendationsService;
+export default RecommendationsService

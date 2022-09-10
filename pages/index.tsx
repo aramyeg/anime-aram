@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import type {NextPage} from 'next'
 import styles from '../styles/Home.module.css'
 import {RecommendationsService} from '../api'
-import {UIModelRecommendations} from '../api/recommendations/recommendations.models'
+import {UIModelRecommendations} from '../api/recommendations/recommendations.model'
 import AppHeader from '../components/AppHeader'
 import AppContent from '../components/AppContent'
 import SearchPopup from '../components/SearchPopup'
@@ -10,7 +10,6 @@ import SearchPopup from '../components/SearchPopup'
 const Home: NextPage<UIModelRecommendations> = (data) => {
   const [popupOpened, setPopupOpened] = useState<boolean>(false)
 
-  console.log(data, 'data')
   return (
     <div className={styles.container}>
       {popupOpened && <SearchPopup onClose={(ev)=>setPopupOpened(false)}/>}

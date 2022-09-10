@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import Router from 'next/router'
-import {Container, Card, Content, Shadow, Text} from './styles';
-import {UIModelRecommendation, UIModelRecommendations} from '../../api/recommendations/recommendations.models';
+import {Container, Card, Content, Shadow, Text} from './styles'
+import {UIModelRecommendation, UIModelRecommendations} from '../../api/recommendations/recommendations.model'
 
 interface IAppContent {
   recommendations: UIModelRecommendations
@@ -36,7 +36,7 @@ const AppContent : FC<IAppContent> = ({recommendations}) => {
       </div>
     </Container>
 
-  );
-};
+  )
+}
 
-export default AppContent;
+export default AppContent
