@@ -1,0 +1,1 @@
+export {default as RecommendationsService} from './recommendations/recommendations';
