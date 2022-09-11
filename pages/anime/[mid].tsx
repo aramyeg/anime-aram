@@ -19,7 +19,7 @@ import {
   CustomLink,
   Checkmark,
   AnimeTitle,
-} from './styles'
+} from '../../styles/animeStyles'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import {AnimeByIDService} from '../../api'
 import {UIModelAnime} from '../../api/animeByID/animeByID.model'

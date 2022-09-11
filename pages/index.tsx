@@ -6,7 +6,7 @@ import AppHeader from '../components/AppHeader'
 import AppContent from '../components/AppContent'
 import SearchPopup from '../components/SearchPopup'
 import Error from 'next/error'
-import {GlobalContainer} from './styles'
+import {GlobalContainer} from '../styles/globals'
 import AppFooter from '../components/AppFooter'
 
 const Home: NextPage<UIModelRecommendations> = (data) => {
