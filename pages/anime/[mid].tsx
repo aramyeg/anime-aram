@@ -58,7 +58,7 @@ const AnimeDesc: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>
           <Header><Link href="/"><div><button><ChevronLeft size={12} color={'#000000'}/></button><CustomLink>Go back to main</CustomLink></div></Link></Header>
           <Content>
             <DetailsContainer>
-              <Image src={anime.largeImageURL}/>
+              <Image alt={'anime_cover_image'} src={anime.largeImageURL}/>
               <Details>
                 <AnimeTitle><Title>{anime.title}</Title>
                   {anime.verified && <Checkmark><Check size={12}/></Checkmark> }
