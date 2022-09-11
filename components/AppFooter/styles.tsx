@@ -21,8 +21,8 @@ export const FooterContent = styled.div.attrs({
   padding: 0 38px;
 `
 
-export const FooterDescription = styled.span.attrs({
-  className: 'FooterDescription',
+export const FooterDescriptionContainer = styled.span.attrs({
+  className: 'FooterDescriptionContainer',
 })`
   display: flex;
   flex-direction: column;
@@ -33,6 +33,15 @@ export const FooterName = styled.span.attrs({
 })`
   font-weight: 600;
   font-size: 16px;
+  margin-bottom: 7px;
+`
+
+export const FooterDescription = styled.span.attrs({
+  className: 'FooterDescriptionContainer',
+})`
+  font-weight: 500;
+  font-size: 12px;
+  color: #929292;
 `
 
 export const PageButton = styled.button.attrs({
