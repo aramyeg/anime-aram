@@ -20,6 +20,9 @@ export const Container = styled.div.attrs({
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 600px) {
+    padding-top: 23px;
+  }
 `
 
 export const Header = styled.div.attrs({
@@ -29,14 +32,19 @@ export const Header = styled.div.attrs({
   max-width: 850px;
   display: flex;
   justify-content: flex-start;
+  @media (max-width: 890px) {
+    margin-left: 20px;
+  }
   button {
     border: none;
     background: none;
     outline: none;
     cursor: pointer;
   }
-  :hover {
-    animation: ${scaleHeader} 3s ease-in-out infinite;
+  @media (min-width: 890px) {
+    :hover {
+      animation: ${scaleHeader} 3s ease-in-out infinite;
+    }
   }
 `
 
@@ -54,9 +62,13 @@ export const Content = styled.div.attrs({
 })`
   display: flex;
   flex-direction: column;
-  width: 850px;
+  max-width: 850px;
   padding: 40px 0;
+  margin: 0 20px;
   height: 100%;
+  @media (max-width: 600px) {
+    padding-top: 23px;
+  }
 `
 
 export const DetailsContainer = styled.div.attrs({
@@ -65,6 +77,9 @@ export const DetailsContainer = styled.div.attrs({
   display: flex;
   justify-content: space-between;
   margin-bottom: 34px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 export const Details = styled.div.attrs({
@@ -87,6 +102,11 @@ export const Detail = styled.div.attrs({
     font-weight: 600;
     font-size: 14px;
   }
+  @media (max-width: 600px) {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 23px;
+  }
 `
 
 export const Image = styled.img.attrs({
@@ -96,6 +116,10 @@ export const Image = styled.img.attrs({
   height: 330px;
   border-radius: 10px;
   margin-right: 20px;
+  @media (max-width: 600px) {
+    width: 100%;
+    height: fit-content;
+  }
 `
 
 export const Title = styled.span.attrs({
@@ -106,6 +130,11 @@ export const Title = styled.span.attrs({
   line-height: 29px;
   margin-bottom: 50px;
   margin-right: 10px;
+  @media (max-width: 600px) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-right: 12px;
+  }
 `
 
 export const Numbers = styled.div.attrs({
@@ -172,6 +201,9 @@ export const Checkmark = styled.div`
   border-radius: 50%;
   width: 24px;
   height: 24px;
+  @media (max-width: 600px) {
+    margin-top: 16px;
+  }
 `
 
 export const AnimeTitle = styled.div`

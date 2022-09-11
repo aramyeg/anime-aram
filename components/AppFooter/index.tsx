@@ -5,7 +5,6 @@ import {ChevronUp} from '../../public/svg'
 const AppFooter = () => {
 
   const handleButton = () => {
-    console.log(123)
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
   }
 

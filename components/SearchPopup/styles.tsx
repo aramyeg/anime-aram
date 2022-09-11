@@ -129,6 +129,9 @@ export const InputSearch = styled.input.attrs({
   font-size: 16px;
   ::placeholder {
     color: #BABABA;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 `
 
@@ -141,5 +144,21 @@ export const SearchResults = styled.div.attrs({
   background-color: #FFFFFF;
   border-radius: 32px;
   width: 100%;
+`
+
+export const EmptyResult = styled.div.attrs({
+  className: 'EmptyResult',
+})`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px 37px 0px;
+  span {
+    font-size: 14px;
+    color: #757575;
+  }
 `
 

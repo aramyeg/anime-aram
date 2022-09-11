@@ -49,4 +49,10 @@ export const PageButton = styled.button.attrs({
   border-radius: 5px;
   margin: 0 10px;
   cursor: pointer;
+  :hover {
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.3);
+  }
+  :active {
+    transform: scale(0.9);
+  }
 `

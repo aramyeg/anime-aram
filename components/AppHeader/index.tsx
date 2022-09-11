@@ -1,7 +1,8 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC} from 'react'
 import {Header, Container, Text, Date, InputContainer, HeaderInput, HeaderSearchIcon} from './styles'
 import {SearchIcon} from '../../public/svg'
 import {getDate} from '../../helpers/getDate'
+import useIsMobile from '../../hooks/useIsMobile'
 
 interface IAppHeader {
   setPopupOpened: React.Dispatch<React.SetStateAction<boolean>>
@@ -9,20 +10,7 @@ interface IAppHeader {
 
 const AppHeader : FC<IAppHeader> = ({setPopupOpened}) => {
 
-  const [isMobile, setIsMobile] = useState(false)
-
-  const handleResize = () => {
-    if (window.innerWidth < 620) {
-      setIsMobile(true)
-    } else {
-      setIsMobile(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  },[])
+  const isMobile = useIsMobile()
 
   return (
     <Header>

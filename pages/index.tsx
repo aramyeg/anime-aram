@@ -16,7 +16,7 @@ const Home: NextPage<UIModelRecommendations> = (data) => {
     <GlobalContainer>
       {!data.activeRecommendations.length ?
         <Error statusCode={404} /> : <>
-          {popupOpened && <SearchPopup onClose={(ev)=> {
+          {popupOpened && <SearchPopup setPopupOpened={setPopupOpened} onClose={(ev)=> {
             ev.preventDefault()
             setPopupOpened(false)
           }}/>}
