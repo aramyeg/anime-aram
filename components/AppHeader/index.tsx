@@ -18,7 +18,7 @@ const AppHeader : FC<IAppHeader> = ({setPopupOpened}) => {
         <Text>Anime</Text>
         <InputContainer>
           <HeaderSearchIcon><SearchIcon size={18} color={'#BABABA'}/></HeaderSearchIcon>
-          <HeaderInput onFocus={(ev)=> {
+          <HeaderInput onFocus={()=> {
             setPopupOpened(true)
           }} placeholder="Search..."/>
         </InputContainer>

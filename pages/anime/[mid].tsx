@@ -26,7 +26,7 @@ import {UIModelAnime} from '../../api/animeByID/animeByID.model'
 import {ChevronLeft, Check} from '../../public/svg'
 import Error from 'next/error'
 
-export const getServerSideProps: GetServerSideProps = async ({params, req}) => {
+export const getServerSideProps: GetServerSideProps = async ({params}) => {
   const animeID = params?.mid
   try {
     const anime = await AnimeByIDService.getAnimeByID(animeID)
