@@ -6,7 +6,6 @@ const getRecommendations = async () : Promise<UIModelRecommendations> => {
   try{
     const response = await fetch(url.toString(), {method: 'GET'})
     const data = await response.json()
-    console.log(data)
     return new UIModelRecommendations(unpackRecommendations(data))
   } catch (err){
     throw new Error(err)

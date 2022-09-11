@@ -1,7 +1,8 @@
 import React, {FC} from 'react'
 import Router from 'next/router'
-import {Container, Card, Content, Shadow, Text} from './styles'
+import {Container, Card, Content, Shadow, ShadowText, Pagination, PageButton} from './styles'
 import {UIModelRecommendation, UIModelRecommendations} from '../../api/recommendations/recommendations.model'
+import {LeftIcon, RightIcon} from '../../public/svg'
 
 interface IAppContent {
   recommendations: UIModelRecommendations
@@ -13,27 +14,35 @@ const AppContent : FC<IAppContent> = ({recommendations}) => {
       <Content>
         {
           recommendations.activeRecommendations.map((item: UIModelRecommendation, index: number)=>(
-            <Card key={index} url={item.imageURL}>
-              <Text>{item.title}</Text>
+            <Card onClick={()=>{
+              Router.push(`/anime/${item.malID}`)
+            }}
+            largeImageURL={item.largeImageURL}
+            key={index}
+            imageURL={item.imageURL} >
+              <ShadowText>{item.title}</ShadowText>
               <Shadow />
             </Card>
           ))
         }
       </Content>
-      <div>
-        <button
+      <Pagination>
+        <PageButton
           onClick={() => Router.push(`/?page=${recommendations.activePage - 1}`)}
           disabled={recommendations.activePage <= 1}
         >
-          PREV
-        </button>
+          <LeftIcon size={16} color={'#666666'}/>
+        </PageButton>
         <span>
           {recommendations.activePage}
         </span>
-        <button onClick={() => Router.push(`/?page=${recommendations.activePage + 1}`)}>
-          NEXT
-        </button>
-      </div>
+        <PageButton
+          onClick={() => Router.push(`/?page=${recommendations.activePage + 1}`)}
+          disabled={recommendations.activePage === recommendations.totalPages}
+        >
+          <RightIcon size={16} color={'#666666'}/>
+        </PageButton>
+      </Pagination>
     </Container>
 
   )

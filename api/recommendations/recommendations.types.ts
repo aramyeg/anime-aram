@@ -21,7 +21,9 @@ export interface IServerResponseRecommendation {
 
 export interface IUIResponseRecommendation {
   imageURL: string
+  largeImageURL: string
   title: string
+  malID: number
 }
 
 export interface IServerResponseRecommendations {

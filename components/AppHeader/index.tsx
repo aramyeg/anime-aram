@@ -1,20 +1,44 @@
-import React, {FC} from 'react'
-import {Header, Container, Text, Date, InputContainer, Input, Icon} from './styles'
+import React, {FC, useEffect, useState} from 'react'
+import {Header, Container, Text, Date, InputContainer, HeaderInput, HeaderSearchIcon} from './styles'
+import {SearchIcon} from '../../public/svg'
+import {getDate} from '../../helpers/getDate'
 
 interface IAppHeader {
-  onInputFocus: React.Dispatch<React.SetStateAction<boolean>>
+  setPopupOpened: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AppHeader : FC<IAppHeader> = ({onInputFocus}) => {
+const AppHeader : FC<IAppHeader> = ({setPopupOpened}) => {
+
+  const [isMobile, setIsMobile] = useState(false)
+
+  const handleResize = () => {
+    if (window.innerWidth < 620) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  },[])
+
   return (
     <Header>
       <Container>
         <Text>Anime</Text>
         <InputContainer>
-          <Icon>O</Icon>
-          <Input onFocus={()=>onInputFocus(true)} placeholder="Search.."/>
+          <HeaderSearchIcon><SearchIcon size={18} color={'#BABABA'}/></HeaderSearchIcon>
+          <HeaderInput onFocus={(ev)=> {
+            setPopupOpened(true)
+          }} placeholder="Search..."/>
         </InputContainer>
-        <Date>Today is the <span>10th of September</span></Date>
+        {
+          isMobile ?
+            <Date>{getDate().short}</Date> :
+            <Date>Today is the <span>{getDate().long}</span></Date>
+        }
       </Container>
     </Header>
   )

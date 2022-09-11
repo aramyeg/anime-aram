@@ -1,21 +1,31 @@
 import React, {useState} from 'react'
 import type {NextPage} from 'next'
-import styles from '../styles/Home.module.css'
 import {RecommendationsService} from '../api'
 import {UIModelRecommendations} from '../api/recommendations/recommendations.model'
 import AppHeader from '../components/AppHeader'
 import AppContent from '../components/AppContent'
 import SearchPopup from '../components/SearchPopup'
+import Error from 'next/error'
+import {GlobalContainer} from './styles'
+import AppFooter from '../components/AppFooter'
 
 const Home: NextPage<UIModelRecommendations> = (data) => {
   const [popupOpened, setPopupOpened] = useState<boolean>(false)
 
   return (
-    <div className={styles.container}>
-      {popupOpened && <SearchPopup onClose={(ev)=>setPopupOpened(false)}/>}
-      <AppHeader onInputFocus={setPopupOpened}/>
-      <AppContent recommendations={data}/>
-    </div>
+    <GlobalContainer>
+      {!data.activeRecommendations.length ?
+        <Error statusCode={404} /> : <>
+          {popupOpened && <SearchPopup onClose={(ev)=> {
+            ev.preventDefault()
+            setPopupOpened(false)
+          }}/>}
+          <AppHeader setPopupOpened={setPopupOpened}/>
+          <AppContent recommendations={data}/>
+          <AppFooter />
+        </>
+      }
+    </GlobalContainer>
   )
 }
 
