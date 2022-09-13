@@ -8,7 +8,6 @@ import {UIModelSearchAnimes} from '../../api/searchAnime/searchAnime.model'
 import {Close, ChevronRight} from '../../public/svg'
 import Router from 'next/router'
 import useIsMobile from '../../hooks/useIsMobile'
-import Image from 'next/image'
 
 interface ISearchPopup {
   onClose: (event: MouseEvent | KeyboardEvent) => void
@@ -63,7 +62,7 @@ const SearchPopup : React.FC<ISearchPopup> = ({onClose, setPopupOpened}) => {
       <SearchItem onClick={()=>{
         Router.push(`/anime/${anime.malID}`)
       }} key={index}>
-        <Image src={anime.imageURL} alt={'anime_cover'}/>
+        <img src={anime.imageURL} alt={'anime_cover'}/>
         <SearchItemInfo>
           <div>{anime.titleEnglish ?  `${anime.title}: ${anime.titleEnglish}` : anime.title }</div>
           <span>{`${anime.type} ∙ ${anime.episodes ? (anime.episodes > 1 ? anime.episodes + ' Episodes' : anime.episodes + ' Episode') : 'Unknown Episodes'} `} ∙ {anime.status}</span>
